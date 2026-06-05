@@ -51,12 +51,56 @@ h1, h2, h3, h4 {
 }
 
 /* ── Layout ────────────────────────────────────────────────── */
+.app-shell {
+  display: flex;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
 .app {
+  flex: 0 0 min(1100px, 100%);
   max-width: 1100px;
-  margin: 0 auto;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* Poster columns — hidden on narrow screens */
+.poster-col {
+  display: none;
+  flex: 1;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.poster-img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  max-height: calc(100vh - 3rem);
+  object-fit: contain;
+  border: 3px solid var(--wpa-brown);
+  box-shadow: 4px 4px 0 var(--wpa-gold);
+  display: block;
+}
+
+/* Show posters when there's room on both sides */
+@media (min-width: 1400px) {
+  .poster-col {
+    display: flex;
+  }
+}
+
+@media (min-width: 1700px) {
+  .poster-img {
+    max-width: 320px;
+  }
 }
 
 /* ── Header ────────────────────────────────────────────────── */
@@ -685,6 +729,11 @@ h1, h2, h3, h4 {
   border-radius: 50%;
   border: 1px solid var(--wpa-brown);
   flex-shrink: 0;
+}
+
+/* ── Desktop font scale ────────────────────────────────────── */
+@media (min-width: 768px) {
+  body { font-size: 19px; }
 }
 
 /* ── Responsive ────────────────────────────────────────────── */

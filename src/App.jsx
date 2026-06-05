@@ -5,6 +5,8 @@ import Scoreboard from './components/Scoreboard';
 import CampaignMap from './components/CampaignMap';
 import FieldLog from './components/FieldLog';
 import LogVisit from './components/LogVisit';
+import posterWildlife from './assets/poster-wildlife.jpg';
+import posterAcadia from './assets/poster-acadia.jpg';
 
 const TABS = ['Scoreboard', 'Campaign Map', 'Field Log', 'Log Visit'];
 
@@ -71,7 +73,12 @@ export default function App() {
       : '✕ LOCAL ONLY';
 
   return (
-    <div className="app">
+    <div className="app-shell">
+      <div className="poster-col poster-left">
+        <img src={posterWildlife} alt="The National Parks Preserve Wild Life" className="poster-img" />
+      </div>
+
+      <div className="app">
       <header className="app-header">
         <div className="header-ornament">◆ ◆ ◆</div>
         <h1>NPS Challenge</h1>
@@ -94,6 +101,11 @@ export default function App() {
       <main className="tab-content">{tabComponents[activeTab]}</main>
 
       <footer className="app-footer">◆ deadline: december 31, 2032 ◆</footer>
+      </div>
+
+      <div className="poster-col poster-right">
+        <img src={posterAcadia} alt="Acadia National Park - Ranger Naturalist Service" className="poster-img" />
+      </div>
     </div>
   );
 }
