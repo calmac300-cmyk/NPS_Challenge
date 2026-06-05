@@ -300,7 +300,14 @@ h1, h2, h3, h4 {
 }
 .exclusive-col.cal    .exclusive-header { color: var(--wpa-sky); }
 .exclusive-col.braden .exclusive-header { color: var(--wpa-red); }
-.exclusive-list { list-style: none; font-size: 0.84rem; }
+.exclusive-list {
+  list-style: none;
+  font-size: 0.84rem;
+  max-height: 260px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--wpa-tan) transparent;
+}
 .exclusive-list li {
   padding: 0.2rem 0;
   border-bottom: 1px solid var(--wpa-tan);

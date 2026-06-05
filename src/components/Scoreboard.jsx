@@ -46,8 +46,8 @@ export default function Scoreboard({ sites }) {
       : `Cal leads by ${Math.abs(gap)} pts`;
 
   // Top 5 exclusive sites for each player
-  const calTop = [...calOnly].sort((a, b) => b.pts - a.pts).slice(0, 8);
-  const bradenTop = [...bradenOnly].sort((a, b) => b.pts - a.pts).slice(0, 8);
+  const calTop = [...calOnly].sort((a, b) => b.pts - a.pts);
+  const bradenTop = [...bradenOnly].sort((a, b) => b.pts - a.pts);
 
   // Type chart — sort by total desc, show top types
   const typeEntries = Object.entries(typeBreakdown)
@@ -155,9 +155,6 @@ export default function Scoreboard({ sites }) {
                 {s.pts === 2 && <span className="site-pts-badge">2pt</span>}
               </li>
             ))}
-            {calOnly.length > 8 && (
-              <li style={{ opacity: 0.6 }}>+{calOnly.length - 8} more</li>
-            )}
           </ul>
         </div>
         <div className="exclusive-col braden">
@@ -169,9 +166,6 @@ export default function Scoreboard({ sites }) {
                 {s.pts === 2 && <span className="site-pts-badge">2pt</span>}
               </li>
             ))}
-            {bradenOnly.length > 8 && (
-              <li style={{ opacity: 0.6 }}>+{bradenOnly.length - 8} more</li>
-            )}
           </ul>
         </div>
       </div>
